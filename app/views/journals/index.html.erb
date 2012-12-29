@@ -1,0 +1,35 @@
+<h1>Listing journals</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Date</th>
+    <th>Slug</th>
+    <th>Thumb</th>
+    <th>Header</th>
+    <th>Sources</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @journals.each do |journal| %>
+  <tr>
+    <td><%= journal.title %></td>
+    <td><%= journal.content %></td>
+    <td><%= journal.date %></td>
+    <td><%= journal.slug %></td>
+    <td><%= journal.thumb %></td>
+    <td><%= journal.header %></td>
+    <td><%= journal.sources %></td>
+    <td><%= link_to 'Show', journal %></td>
+    <td><%= link_to 'Edit', edit_journal_path(journal) %></td>
+    <td><%= link_to 'Destroy', journal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Journal', new_journal_path %>

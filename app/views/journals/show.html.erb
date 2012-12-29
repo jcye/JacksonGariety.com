@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @journal.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @journal.content %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @journal.date %>
+</p>
+
+<p>
+  <b>Slug:</b>
+  <%= @journal.slug %>
+</p>
+
+<p>
+  <b>Thumb:</b>
+  <%= @journal.thumb %>
+</p>
+
+<p>
+  <b>Header:</b>
+  <%= @journal.header %>
+</p>
+
+<p>
+  <b>Sources:</b>
+  <%= @journal.sources %>
+</p>
+
+
+<%= link_to 'Edit', edit_journal_path(@journal) %> |
+<%= link_to 'Back', journals_path %>

@@ -1,0 +1,37 @@
+<h1>Listing sounds</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Date</th>
+    <th>Slug</th>
+    <th>Sound</th>
+    <th>Thumb</th>
+    <th>Artist</th>
+    <th>Album</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sounds.each do |sound| %>
+  <tr>
+    <td><%= sound.title %></td>
+    <td><%= sound.description %></td>
+    <td><%= sound.date %></td>
+    <td><%= sound.slug %></td>
+    <td><%= sound.sound %></td>
+    <td><%= sound.thumb %></td>
+    <td><%= sound.artist %></td>
+    <td><%= sound.album %></td>
+    <td><%= link_to 'Show', sound %></td>
+    <td><%= link_to 'Edit', edit_sound_path(sound) %></td>
+    <td><%= link_to 'Destroy', sound, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sound', new_sound_path %>
