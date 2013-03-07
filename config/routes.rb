@@ -1,33 +1,40 @@
 JacksongarietyDev::Application.routes.draw do
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
+  mount Ckeditor::Engine => '/ckeditor'
+
   root :to => "home#index"
+
+  match "/home" => redirect("/#")
+
+  match "/journals" => redirect("/#journals")
+
+  match "/photography" => redirect("/#photography")
+
+  match "/quotes" => redirect("/#quotes")
+
+  match "/projects" => redirect("/#projects")
+
+  match '/resume' => "pages#resume"
+
+  match '/feeds' => "pages#feeds"
+
+  match '/feed' => 'feeds#feed', :as => :feed, :defaults => { :format => 'atom' }
 
   resources :projects
 
-
   resources :events
 
-
-  resources :pictures
-
-
-  resources :sounds
-
-
-  resources :journals
-
+  resources :photographs, :path => "photography"
 
   resources :quotes
 
-
   resources :videos
 
-
-  resources :posts
-
+  resources :posts, :path => "journals"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,25 +1,8 @@
-<p id="notice"><%= notice %></p>
+<section>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @quote.title %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @quote.content %>
-</p>
-
-<p>
-  <b>Date:</b>
-  <%= @quote.date %>
-</p>
-
-<p>
-  <b>Slug:</b>
-  <%= @quote.slug %>
-</p>
-
-
-<%= link_to 'Edit', edit_quote_path(@quote) %> |
-<%= link_to 'Back', quotes_path %>
+  <article>
+    <p>"<%= @quote.content %>"</p>
+    <p class="author">&mdash; <%= @quote.author %></p>
+  </article>
+<section>

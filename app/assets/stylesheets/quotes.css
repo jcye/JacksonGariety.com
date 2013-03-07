@@ -1,4 +1,31 @@
-/*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-*/
+aside {
+  position: fixed;
+  top: 25px;
+  left: 35px;
+  z-index: 10000;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  max-width: 100% !important;
+  margin: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+article {
+  width: auto !important;
+  display: block !important;
+  margin-left: 200px !important;
+  margin-right: 25px !important;
+  font-size: 4em !important;
+  color: #555;
+}
+
+article p {
+  line-height: 1.2 !important;
+  letter-spacing: -2px;
+  margin: 0;
+  padding: 0;
+}

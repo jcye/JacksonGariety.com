@@ -1,25 +1,26 @@
-<p id="notice"><%= notice %></p>
+<section>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @event.title %>
-</p>
+  <p>
+    <b>Title:</b>
+    <%= @event.title %>
+  </p>
 
-<p>
-  <b>Description:</b>
-  <%= @event.description %>
-</p>
+  <p>
+    <b>Description:</b>
+    <%= @event.description %>
+  </p>
 
-<p>
-  <b>Thumb:</b>
-  <%= @event.thumb %>
-</p>
+  <p>
+    <b>Thumb:</b>
+    <%= @event.thumb %>
+  </p>
 
-<p>
-  <b>Slug:</b>
-  <%= @event.slug %>
-</p>
-
+  <p>
+    <b>Slug:</b>
+    <%= @event.slug %>
+  </p>
+</section>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

@@ -3,12 +3,47 @@
 <head>
   <title>Jackson Gariety Can Tell the Future</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag params[:controller] %>
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag "modernizr" %>
 </head>
 <body>
 
+<aside>
+  <a href="/"><div id="me"></div><div id="my-shadow"></div></a>
+  <h2>Jackson Gariety</h2>
+  <ul>
+    <a href="/#"><li class="home" data-selector="home">Home</li></a>
+    <a href="/#journals"><li class="journals" data-selector="post">Journals</li></a>
+    <a href="/#life"><li class="life" data-selector="event">Life</li></a>
+    <a href="/#photography"><li class="photography" data-selector="photograph">Photography</li></a>
+    <a href="/#projects"><li class="projects" data-selector="project">Projects</li></a>
+    <a href="/#quotes"><li class="quotes" data-selector="quote">Quotes</li></a>
+    <a href="/#videos"><li class="videos" data-selector="video">Videos</li></a>
+<!--
+    <br><br>
+    <a href="/feeds"><li class="feeds">Feeds</li></a>
+    <a href="/resume"><li class="resume">Resume</li></a>
+-->
+  </ul>
+</aside>
+
 <%= yield %>
 
+<footer>
+</footer>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "http://hashtraffic.com/js/hashtraffic-desktop.js" %>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-29461279-1']);
+    _gaq.push(['_setDomainName', 'jacksongariety.com']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
 </body>
 </html>

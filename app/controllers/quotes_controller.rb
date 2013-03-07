@@ -13,7 +13,7 @@ class QuotesController < ApplicationController
   # GET /quotes/1
   # GET /quotes/1.json
   def show
-    @quote = Quote.find(params[:id])
+    @quote = Quote.find_by_slug(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +34,7 @@ class QuotesController < ApplicationController
 
   # GET /quotes/1/edit
   def edit
-    @quote = Quote.find(params[:id])
+    @quote = Quote.find_by_slug(params[:id])
   end
 
   # POST /quotes
@@ -56,7 +56,7 @@ class QuotesController < ApplicationController
   # PUT /quotes/1
   # PUT /quotes/1.json
   def update
-    @quote = Quote.find(params[:id])
+    @quote = Quote.find_by_slug(params[:id])
 
     respond_to do |format|
       if @quote.update_attributes(params[:quote])
@@ -72,7 +72,7 @@ class QuotesController < ApplicationController
   # DELETE /quotes/1
   # DELETE /quotes/1.json
   def destroy
-    @quote = Quote.find(params[:id])
+    @quote = Quote.find_by_slug(params[:id])
     @quote.destroy
 
     respond_to do |format|

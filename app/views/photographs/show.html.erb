@@ -1,0 +1,10 @@
+<section>
+  <p id="notice"><%= notice %></p>
+
+  <h1>
+    <%= link_to("<span>&larr; Previous Photo</span>".html_safe, @photograph.prev_path) %>
+    <%= @photograph.title %>
+    <%= link_to("<span>Next Photo &rarr;</span>".html_safe, @photograph.next_path) %>
+  </h1>
+  <article style="background-image: url('<%= @photograph.image_file %>');"></article>
+</section>

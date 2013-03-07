@@ -1,3 +1,11 @@
 class Quote < ActiveRecord::Base
-  attr_accessible :content, :date, :slug, :title
+  just_define_datetime_picker :created_at, :add_to_attr_accessible => true
+
+  attr_accessible :content, :date, :slug, :author
+
+  def to_param
+    "#{slug}"
+  end
+
+  validates :content, :author, :slug, :presence => true
 end

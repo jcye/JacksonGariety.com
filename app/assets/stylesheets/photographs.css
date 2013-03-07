@@ -1,0 +1,94 @@
+body {
+  background: #111;
+}
+
+h1 {
+  color: #FBFBFB;
+  position: absolute;
+  left: 5px;
+  bottom: 15px;
+  font-size: 2em;
+  text-shadow: 0 0 6px #111;
+}
+
+aside {
+  position: absolute;
+  top: 25px;
+  left: 35px;
+  z-index: 10000;
+  margin: 0;
+  padding: 0;
+  text-shadow: 0 0 6px #111;
+}
+
+aside li{
+  color: #FBFBFB;
+}
+
+aside li:hover {
+  color: #AAA;
+}
+
+aside li:active {
+  color: #FFF;
+}
+
+h2 {
+  color: #FBFBFB !important;
+}
+
+#me {
+  border-color: rgba(0,0,0,.15);
+  -webkit-box-shadow: 0 0 6px #111;
+}
+
+#me:active {
+  opacity: .85;
+}
+
+body section, article {
+  padding: 0;
+  max-width: 100%;
+}
+
+html, body, section, article {
+  height: 100%;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+article {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+h1 a {
+  text-decoration: none;
+}
+
+h1 span {
+  color: #FBFBFB !important;
+  font-size: .35em;
+  line-height: 1;
+  display: block;
+  font-weight: 400;
+  margin-top: -40px;
+  min-width: 117px;
+  margin-bottom: 10px;
+}
+
+h1 a:last-child span {
+  margin-top: 10px;
+}
+
+h1 span:hover {
+  text-decoration: underline;
+}
+
+article, section > h1 {
+  margin: 25px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding: 0;
+}

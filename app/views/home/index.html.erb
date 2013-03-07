@@ -1,5 +1,74 @@
-<% @contents.each do |post| %>
-  <tr>
-    <td><%= post.title %></td>
-  </tr>
+<% def laybricks(c,stream) %>
+  <% if c.is_a?(Post) %>
+    <article class="tile post <%= "featured hidden" if c == @featured && stream == true %>" style="background-image: url('<%= c.thumb.url(:large) %>');">
+      <%= link_to c do %>
+        <div class="spacer"></div>
+        <h1 class="post-title">
+          <%= c.title %>
+          <p class="crafted-on"><i><%= c.created_at.strftime("%A, %B #{c.created_at.day.ordinalize}, %Y") %></i></p>
+        </h1>
+        <span>Read journal &rarr;</span>
+      <% end %>
+      <div class="shade"></div>
+    </article>
+  <% elsif c.is_a?(Photograph) %>
+    <article class="tile photograph <%= c.image_width >= c.image_height ? "wide" : "tall" %>" style="background-image: url('<%= c.image_file.url(:small) %>');">
+      <%= link_to c do %>
+        <div class="spacer"></div>
+        <h1 class="post-title"></h1>
+      <% end %>
+      <div class="shade"></div>
+    </article>
+  <% elsif c.is_a?(Quote) %>
+    <article class="tile quote">
+      <%= link_to c do %>
+        <div class="spacer"></div>
+        <h1 class="post-title">
+          "<%= c.content %>"<br><p class="author">&mdash; <%= c.author %></p>
+        </h1>
+      <% end %>
+      <div class="shade"></div>
+    </article>
+  <% elsif c.is_a?(Project) %>
+    <article class="tile project <%= "featured hidden" if c == @featured && stream == true %> <%= c.side_project == true ? "client" : "main" %>" style="background-image: url('<%= c.thumb %>');">
+      <%= link_to c.link, :target => "_blank" do %>
+        <div class="spacer"></div>
+        <h1 class="post-title">
+          <%= c.title %>
+          <%= "<p class=\"crafted-on\">".html_safe + c.description + "</p>".html_safe if (c == @featured && stream == false) || c.side_project == false %>
+        </h1>
+      <% end %>
+      <div class="frame"></div>
+      <div class="shade"></div>
+    </article>
+  <% elsif c.is_a?(Event) %>
+    <article class="tile event <%= "type-" + c.event_type.to_s %> <%= "featured hidden" if c == @featured && stream == true %>">
+      <div class="spacer"></div>
+      <h1 class="post-title">
+        <%= c.title %>
+        <p class="crafted-on"><i><%= c.created_at.strftime("%A, %B #{c.created_at.day.ordinalize}, %Y") %></i></p>
+      </h1>
+      <div class="shade"></div>
+    </article>
+  <% elsif c.is_a?(Video) %>
+    <article class="tile video <%= "featured hidden" if c == @featured && stream == true %>">
+      <%= link_to "https://vimeo.com/" + c.vimeo, :target => "_blank", :class => "vimeo-link" do %>
+        <div class="spacer"></div>
+        <div class="shade"></div>
+      <% end %>
+      <iframe src="http://player.vimeo.com/video/<%= c.vimeo %>" width="660" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+    </article>
+  <% end %>
 <% end %>
+
+<section id="featured">
+  <p class="label">Latest work&hellip;</p>
+  <% laybricks(@featured,false) %>
+  <p class="label">More&hellip;</p>
+</section>
+
+<section id="stream">
+  <% @contents.each do |c| %>
+    <% laybricks(c,true) %>
+  <% end %>
+</section>

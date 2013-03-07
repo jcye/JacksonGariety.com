@@ -1,4 +1,25 @@
-/*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-*/
+/* Responsive Schtuff */
+
+@media only screen and (max-width: 1111px) {
+  aside {
+
+  }
+}
+
+@media only screen and (max-width: 1150px) {
+  aside {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin: 0;
+    left: 0;
+    border-bottom: 1px dashed #bbb;
+  }
+
+  #me, #my-shadow {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
