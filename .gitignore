@@ -13,3 +13,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# No database.yml
+/config/database.yml
+
+# No public folder
+/public
