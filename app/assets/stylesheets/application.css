@@ -19,6 +19,10 @@
   padding: 0;
 }
 
+article, aside, figure, footer, header, hgroup, menu, nav, section {
+  display:block;
+}
+
 html {
   overflow-y: scroll;
 }
@@ -37,7 +41,7 @@ body section {
 }
 
 section#stream {
-  padding-bottom: 69px;
+  padding-bottom: 65px;
 }
 
 /* Links */
@@ -60,7 +64,7 @@ aside {
   position: fixed;
   width: 150px;
   left: 50%;
-  margin-left: -575px;
+  margin-left: -555px;
   padding: 50px;
   padding-top: 25px;
   text-align: center;
@@ -78,15 +82,14 @@ aside a, aside a:link {
 }
 
 aside li {
-  cursor: pointer;
   list-style: none;
   border: 1px solid transparent;
   clear: both;
   display: inline-block;
   padding-left: 6px;
   padding-right: 6px;
-  margin-left: 16px;
-  margin-right: 16px;
+  margin-left: 20px;
+  margin-right: 20px;
   padding-bottom: 2px;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -100,21 +103,35 @@ aside li:after {
   line-height: 1;
 }
 
-aside li:hover {
+aside a li {
+  cursor: pointer;
+}
+
+aside a li:hover {
   color: #999;
 }
 
-aside li:active {
+aside a li:active {
   color: #222
 }
 
-aside li.active {
+aside a li.active {
   border-color: #CCC;
+}
+
+aside .tilde {
+  font-size: 1.5em;
+  color: #DDD;
+  line-height: 0;
+  margin-top: -4px;
+  margin-bottom: 3px;
 }
 
 #me, #my-shadow {
   border: 4px solid rgba(0,0,0,.05);
-  border-radius:  150px;
+  -webkit-border-radius: 150px;
+     -moz-border-radius: 150px;
+          border-radius: 150px;
   width: 142px;
   margin-top: 0;
   height: 142px;
@@ -126,6 +143,11 @@ aside li.active {
   -moz-background-size: 150px;
     -o-background-size: 150px;
        background-size: 150px;
+  behavior: url("/assets/PIE.htc");
+}
+
+#my-shadow {
+  background-image: none;
 }
 
 #my-shadow {
@@ -157,10 +179,13 @@ aside li.active {
   cursor: pointer;
   background-position: center center;
   display: none;
+  behavior: url("/assets/PIE.htc");
 }
 
-.tile:hover {
-  -webkit-filter: none;
+.shade {
+  margin-left: 4px;
+  margin-top: 4px;
+  border: 4px solid rgba(0,0,0,.125);
 }
 
 .masonry-brick, #featured .tile {
@@ -204,7 +229,6 @@ aside li.active {
 
 #featured .tile.project .post-title, .tile.project.main .post-title {
   width: 310px;
-  word-break: break-word;
   font-size: 1.5em;
   padding-top: 15px;
 }
@@ -221,8 +245,8 @@ aside li.active {
 #featured .tile .shade, .tile.project .shade, .tile.project.main .shade, .tile.video .shade {
   position: absolute;
   top: 0;
-  width: 652px;
-  height: 292px;
+  width: 644px;
+  height: 284px;
 }
 
 #featured .frame, .tile.project.main .frame {
@@ -300,7 +324,7 @@ aside li.active {
 }
 
 .tile.event:hover .shade {
-  -webkit-box-shadow: inset 0 0 0 4px rgba(0,0,0,.15);
+  border-color: rgba(0,0,0,.15);
 }
 
 .tile.event h1 {
@@ -324,21 +348,16 @@ aside li.active {
   height: 142px;
 }
 
-.shade {
-  margin-left: 4px;
-  margin-top: 4px;
-}
-
 .tile.post .shade, .tile.event .shade, .tile.video .shade {
-  width: 652px;
-  height: 292px;
+  width: 644px;
+  height: 284px;
   background: #FFF;
   opacity: .85;
-  -webkit-box-shadow: inset 0 0 0 4px rgba(0,0,0,.058);
+  border-color: rgba(0,0,0,.058);
 }
 
 .tile.video .shade {
-  -webkit-box-shadow: inset 0 0 0 4px rgba(0,0,0,.15);
+  border-color: rgba(0,0,0,.15);
   z-index: 1;
   opacity: .5;
   background: transparent;
@@ -357,18 +376,18 @@ aside li.active {
 }
 
 .tile.event .shade {
-  height: 142px;
+  height: 134px;
   background: transparent !important;
   position: absolute;
   left: 0;
 }
 
 .tile.project .shade {
-  width: 322px;
+  width: 314px;
   height: 150px;
   background: transparent;
   opacity: .85;
-  -webkit-box-shadow: inset 0 0 0 4px rgba(0,0,0,.116);
+  border-color: rgba(0,0,0,.116);
 }
 
 .tile.project:hover .shade, .tile.video:hover .shade {
@@ -484,16 +503,16 @@ p.author {
   height: 142px;
   background: #FFF;
   opacity: .1;
-  -webkit-box-shadow: inset 0 0 0 4px rgba(0,0,0,.5);
+  border-color: rgba(0,0,0,.5);
 }
 
 .tile.photograph.wide .shade {
-  width: 322px;
-  height: 142px;
+  width: 314px;
+  height: 134px;
 }
 
 .tile.photograph.tall .shade, .tile.project .shade {
-  height: 292px;
+  height: 284px;
 }
 
 .tile.photograph.tall .shade {
@@ -533,7 +552,7 @@ p.author {
   padding-top: 12px;
   height: 109px;
   width: 275px;
-  font-family: "FF Tisa Web Pro";
+  font-family: "FF Tisa Web Pro", Georgia, Cambria, "Times New Roman", Times, serif;
   color: #666;
   line-height: 1.05;
   font-weight: 100;
@@ -549,13 +568,13 @@ p.author {
 }
 
 .tile.post:hover .shade {
-  -webkit-box-shadow: inset 0 0 0 4px rgba(0,0,0,.6);
+  border-color: rgba(0,0,0,.6);
 }
 
 .tile:active .shade {
   opacity: .75;
   background: #111;
-  -webkit-box-shadow: inset 0 0 0 4px rgba(0,0,0,1);
+  border-color: rgba(0,0,0,1);
 }
 
 .tile.hidden {
@@ -587,11 +606,11 @@ p.author {
   margin-top: 10px;
   padding: 0 !important;
   font-style: italic;
-  font-family: "FF Tisa Web Pro";
+  font-family: "FF Tisa Web Pro", Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 .tile.project:active .shade {
-  -webkit-box-shadow: inset 0 0 0 4px rgba(0,0,0,.1);
+  border-color: rgba(0,0,0,.1);
 }
 
 /* Posts */
@@ -618,7 +637,7 @@ article p img {
 
 h1, h2, h3, h4, h5, h6 {
   color: #333;
-  font-family: "Open Sans";
+  font-family: "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   line-height: 1.1;
 }
 
@@ -638,7 +657,6 @@ p {
 .small-caps { font-variant: small-caps; }
 
 strong {
-  font-size: 1.5em;
   margin-bottom: 25px;
 }
 
@@ -658,7 +676,7 @@ table#feeds {
 }
 
 table#feeds tr:first-child {
-  font-family: "Open Sans";
+  font-family: "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 900;
   font-size: 1.75em;
   text-align: center;
