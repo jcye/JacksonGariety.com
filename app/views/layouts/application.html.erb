@@ -5,7 +5,9 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= stylesheet_link_tag params[:controller] %>
   <%= csrf_meta_tags %>
-  <%= auto_discovery_link_tag :rss, "/posts/posts.rss" %>
+  <%= auto_discovery_link_tag :atom, "/feeds/literary" %>
+  <%= auto_discovery_link_tag :atom, "/feeds/architect" %>
+  <%= auto_discovery_link_tag :atom, "/posts/stalker" %>
   <%= javascript_include_tag "modernizr" %>
 </head>
 <body>

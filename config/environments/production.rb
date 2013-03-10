@@ -68,9 +68,7 @@ JacksongarietyDev::Application.configure do
   Dir.chdir "#{Rails.root}/app/assets/javascripts"
   a = Dir.glob("*.{js,coffee,erb}")
   Dir.chdir "#{Rails.root}/app/assets/stylesheets"
-  b = Dir.glob("*.{css,erb,htc}")
-  Dir.chdir "#{Rails.root}/app/assets/fonts"
-  b = Dir.glob("*.{eot,woff,ttf,otf,svg}")
+  b = Dir.glob("*.{css,erb}")
   config.assets.precompile +=  a.concat(b)
   Dir.chdir Rails.root
 end
