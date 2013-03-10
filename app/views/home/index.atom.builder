@@ -5,7 +5,25 @@ atom_feed :language => 'en-US' do |feed|
   @contents.each do |item|
     next if item.updated_at.blank?
 
-    feed.entry(item) do |entry|
+    if item.is_a?(Post)
+      itemurl = post_url(item)
+    elsif item.is_a?(Project)
+      itemurl = item.link
+    elsif item.is_a?(Video)
+      itemurl = "http://player.vimeo.com/video/" + item.vimeo
+    elsif item.is_a?(Photograph)
+      itemurl = photograph_url(item)
+    elsif item.is_a?(Quote)
+      quoteurl = quote_url(item)
+    elsif item.is_a?(Event)
+      eventurl = "http://jacksongariety.com/#life"
+    end
+
+    feed.entry(item, :url => itemurl) do |entry|
+      entry.author do |author|
+        author.name("Jackson Gariety")
+      end
+
       if item.is_a?(Post)
         entry.url post_url(item)
         entry.title item.title
@@ -25,18 +43,11 @@ atom_feed :language => 'en-US' do |feed|
       elsif item.is_a?(Quote)
         entry.url quote_url(item)
         entry.title item.content
-        entry.content "\"" + item.content + "\"<br><p class=\"author\">&mdash; " + item.author + "</p>"
+        entry.content "\"" + item.content + "\"<br><p class=\"author\">&mdash; " + item.author + "</p>", :type => 'html'
       elsif item.is_a?(Event)
         entry.url "http://jacksongariety.com/#life"
         entry.title item.title
         entry.content item.title + " on " + item.created_at.strftime("%A, %B #{item.created_at.day.ordinalize}, %Y")
-      end
-
-      # Google Reader
-      entry.updated(item.updated_at.strftime("%Y-%m-%dT%H:%M:%SZ"))
-
-      entry.author do |author|
-        author.name("Jackson Gariety")
       end
     end
   end

@@ -306,6 +306,10 @@ p.label span:last-child {
   overflow: hidden;
 }
 
+#featured.hidden .dots {
+  display: none;
+}
+
 .spacer {
   position: absolute;
   z-index: 100000;

@@ -5,7 +5,21 @@ atom_feed :language => 'en-US' do |feed|
   @contents.each do |item|
     next if item.updated_at.blank?
 
-    feed.entry(item) do |entry|
+    if item.is_a?(Post)
+      itemurl = post_url(item)
+    elsif item.is_a?(Project)
+      itemurl = item.link
+    elsif item.is_a?(Video)
+      itemurl = "http://player.vimeo.com/video/" + item.vimeo
+    elsif item.is_a?(Photograph)
+      itemurl = photograph_url(item)
+    end
+
+    feed.entry(item, :url => itemurl) do |entry|
+      entry.author do |author|
+        author.name("Jackson Gariety")
+      end
+
       if item.is_a?(Post)
         entry.url post_url(item)
         entry.title item.title
@@ -22,13 +36,6 @@ atom_feed :language => 'en-US' do |feed|
         entry.url photograph_url(item)
         entry.title item.title
         entry.content "<img src=\"" + item.image_file.url + "\" />", :type => 'html'
-      end
-
-      # Google Reader
-      entry.updated(item.updated_at.strftime("%Y-%m-%dT%H:%M:%SZ"))
-
-      entry.author do |author|
-        author.name("Jackson Gariety")
       end
     end
   end
