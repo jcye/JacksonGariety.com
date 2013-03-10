@@ -8,6 +8,7 @@ gem "paperclip", "~> 3.0"
 gem "ckeditor"
 gem "cancan"
 gem "just-datetime-picker"
+gem "paperclip-compression"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

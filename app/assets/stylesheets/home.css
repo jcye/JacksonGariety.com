@@ -1,6 +1,6 @@
 /* Responsive Schtuff */
 
-@media only screen and (max-width: 1150px) {
+@media only screen and (max-width: 1000px) {
   aside {
     position: relative;
     width: 100%;
@@ -15,5 +15,21 @@
   #me, #my-shadow {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .dots, .tilde {
+    display: none !important;
+  }
+
+  #just-the-tip {
+    font-size: .75em;
+    margin-top: -9px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: rgba(0,0,0,.75);
+  }
+
+  #just-the-tip .arrow {
+    border-left-color: rgba(0,0,0,.75);
   }
 }

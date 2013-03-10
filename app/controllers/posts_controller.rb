@@ -2,11 +2,17 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    @title = "Jackson Gariety - The Literary"
+
     @posts = Post.all
+
+    @updated = @posts.first.updated_at unless @posts.empty?
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
+      format.atom { render :layout => false } # index.atom.builder
+      format.rss { redirect_to feed_path(:format => :atom), :status => :moved_permanently }
     end
   end
 

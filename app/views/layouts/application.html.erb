@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Jackson Gariety Can Tell the Future</title>
+  <title>Jackson Gariety — Designer, Developer, Philosopher</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= stylesheet_link_tag params[:controller] %>
   <%= csrf_meta_tags %>
+  <%= auto_discovery_link_tag :rss, "/posts/posts.rss" %>
   <%= javascript_include_tag "modernizr" %>
 </head>
 <body>
 
 <aside>
   <a href="/"><div id="me"></div><div id="my-shadow"></div></a>
-  <h2>Jackson Gariety</h2>
+  <h2>Hi, I'm Jackson</h2>
+  <p>I like text editors and pixels and patterns and humans.</p>
   <ul>
+    <li class="tilde">&sim;</li>
     <a href="/#"><li class="home" data-selector="home">Home</li></a>
     <a href="/#journals"><li class="journals" data-selector="post">Journals</li></a>
-    <a href="/#life"><li class="life" data-selector="event">Life</li></a>
-    <a href="/#photography"><li class="photography" data-selector="photograph">Photography</li></a>
     <a href="/#projects"><li class="projects" data-selector="project">Projects</li></a>
-    <a href="/#quotes"><li class="quotes" data-selector="quote">Quotes</li></a>
     <a href="/#videos"><li class="videos" data-selector="video">Videos</li></a>
+    <a href="/#photography"><li class="photography" data-selector="photograph">Photography</li></a>
+    <a href="/#thoughts"><li class="thoughts" data-selector="thought">Thoughts</li></a>
+    <a href="/#life"><li class="life" data-selector="event">Life</li></a>
     <li class="tilde">&sim;</li>
     <a href="/feeds"><li class="feeds">Feeds</li></a>
     <a href="/resume"><li class="resume">Hire Me</li></a>
@@ -28,8 +31,6 @@
 
 <%= yield %>
 
-<footer>
-</footer>
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "http://hashtraffic.com/js/hashtraffic-desktop.js" %>
   <script type="text/javascript">

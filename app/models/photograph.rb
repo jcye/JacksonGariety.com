@@ -3,11 +3,12 @@ class Photograph < ActiveRecord::Base
 
   attr_accessible :title, :description, :slug, :image_file
 
-  has_attached_file :image_file, :styles => {
-    :large => "2880x1800>",
-    :medium => "1440x900>",
-    :small => "800x500>"
-  }
+  has_attached_file :image_file,
+                    :styles => {
+                      :large => "2880x1800>",
+                      :medium => "1440x900>",
+                      :small => "800x500>"
+                    }
 
   after_post_process :save_image_dimensions
 

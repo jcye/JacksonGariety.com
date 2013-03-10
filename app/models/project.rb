@@ -3,11 +3,12 @@ class Project < ActiveRecord::Base
 
   attr_accessible :description, :link, :slug, :thumb, :title, :side_project
 
-  has_attached_file :thumb, :styles => {
-    :large => "600x600>",
-    :medium => "300x300>",
-    :small => "150x150>"
-  }
+  has_attached_file :thumb,
+                    :styles => {
+                      :large => "600x600>",
+                      :medium => "300x300>",
+                      :small => "150x150>"
+                    }
 
   validates :title, :link, :presence => true
 end

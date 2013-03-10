@@ -31,17 +31,23 @@ body {
   font-family: "FF Tisa Web Pro", Georgia, Cambria, "Times New Roman", Times, serif;
   color: #444;
   background: #F9F9F9;
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-body section {
+section {
   width: 100%;
   max-width: 660px;
   margin: 0 auto;
   font-size: 1.22em;
 }
 
-section#stream {
-  padding-bottom: 65px;
+#stream {
+  padding-bottom: 21px;
+}
+
+#featured {
+  padding-top: 25px;
 }
 
 /* Links */
@@ -79,6 +85,11 @@ aside h2 {
 aside a, aside a:link {
   color: #444;
   text-decoration: none;
+}
+
+aside p {
+  font-style: italic;
+  margin-bottom: 3px;
 }
 
 aside li {
@@ -179,6 +190,7 @@ aside .tilde {
   cursor: pointer;
   background-position: center center;
   display: none;
+  -webkit-transform: translateZ(0);
   behavior: url("/assets/PIE.htc");
 }
 
@@ -201,10 +213,35 @@ aside .tilde {
   font-size: 1em;
   font-style: italic;
   padding-left: 4px;
-  padding-bottom: 16px;
-  padding-top: 16px;
+  margin-bottom: 21px !important;
+  margin-top: 21px !important;
   margin-bottom: 0;
   text-align: center;
+  overflow: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.dots {
+  position: absolute;
+  margin-top: 2px;
+  font-size: 8px;
+  letter-spacing: 3px;
+  color: #BBB;
+  z-index: -1;
+  width: 653px;
+  overflow: hidden;
+  float: left;
+  text-align: left;
+}
+
+p.label span:last-child {
+  background: #F9F9F9;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: -15px;
 }
 
 #featured .tile {
@@ -255,7 +292,8 @@ aside .tilde {
 }
 
 #featured p:first-child {
-  padding-top: 20px;
+  margin-top: 0;
+  margin-bottom: 21px;
 }
 
 #featured.done p, #featured.done .tile {
@@ -264,7 +302,7 @@ aside .tilde {
 
 #featured.hidden {
   height: 0;
-  margin-bottom: 4px;
+  padding-top: 21px;
   overflow: hidden;
 }
 
@@ -437,7 +475,7 @@ aside .tilde {
   height: 128px;
 }
 
-.tile.photograph.wide .spacer, .tile.quote .spacer {
+.tile.photograph.wide .spacer, .tile.thought .spacer {
   width: 322px;
   height: 142px;
 }
@@ -452,7 +490,7 @@ aside .tilde {
   height: 292px;
 }
 
-.tile.quote {
+.tile.thought {
   background: #F1F1F1;
 }
 
@@ -468,7 +506,7 @@ p.author {
   margin-top: 10px;
 }
 
-.tile.photograph, .tile.quote, .tile.project {
+.tile.photograph, .tile.thought, .tile.project {
   width: 330px;
   height: 150px;
   background-size: cover;
@@ -498,9 +536,9 @@ p.author {
   width: 165px;
 }
 
-.tile.photograph .shade, .tile.quote .shade {
-  width: 322px;
-  height: 142px;
+.tile.photograph .shade, .tile.thought .shade {
+  width: 314px;
+  height: 134px;
   background: #FFF;
   opacity: .1;
   border-color: rgba(0,0,0,.5);
@@ -519,7 +557,7 @@ p.author {
   width: 157px;
 }
 
-.tile.photograph .post-title, .tile.quote .post-title, .tile.project .post-title {
+.tile.photograph .post-title, .tile.thought .post-title, .tile.project .post-title {
   position: absolute;
   color: #111;
   text-decoration: none;
@@ -546,7 +584,7 @@ p.author {
   height: 282px;
 }
 
-.tile.quote .post-title {
+.tile.thought .post-title {
   font-size: 1.5em;
   padding: 25px;
   padding-top: 12px;
@@ -563,7 +601,7 @@ p.author {
   opacity: .66;
 }
 
-.tile.post:hover h1, .tile.photograph:hover h1, .tile.quote:hover h1, .tile.post:hover span, .tile.post:hover p, .tile.project:hover p, .tile.project:hover h1, .tile.event:hover h1   {
+.tile.post:hover h1, .tile.photograph:hover h1, .tile.thought:hover h1, .tile.post:hover span, .tile.post:hover p, .tile.project:hover p, .tile.project:hover h1, .tile.event:hover h1   {
   color: #F9F9F9;
 }
 
@@ -615,10 +653,14 @@ p.author {
 
 /* Posts */
 
-article, section > h1 {
+article, section h1 {
   padding: 25px;
   padding-top: 16px;
-  padding-bottom: 8px;
+  padding-bottom: 13px;
+}
+
+section h1 {
+  padding-top: 33px;
 }
 
 article img {
@@ -660,11 +702,15 @@ strong {
   margin-bottom: 25px;
 }
 
-blockquote {
+blockthought {
 	border-left: 5px solid #282828;
 	margin: 15px 20px 0 5px;
 	padding-left: 20px;
 	opacity: .95;
+}
+
+.inside {
+  list-style-position: inside;
 }
 
 /* Feeds Table */
@@ -701,6 +747,48 @@ table#feeds tr:last-child td {
 
 table#feeds li {
   list-style-position: inside;
+}
+
+/* Scrollbar Tooltip */
+
+#just-the-tip {
+  position: fixed;
+  top: 0;
+  right: 20px;
+  padding-top: 3px;
+  padding-bottom: 7px;
+  font-size: 1em;
+  padding-left: 10px;
+  margin-top: -5px;
+  -webkit-transform: translateZ(0);
+  padding-right: 10px;
+  color: #F9F9F9;
+  background: rgba(0,0,0,.5);
+  behavior: url("/assets/PIE.htc");
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  -webkit-transition: opacity 350ms;
+     -moz-transition: opacity 350ms;
+       -o-transition: opacity 350ms;
+          transition: opacity 350ms;
+  opacity: 0;
+}
+
+#just-the-tip.active {
+  opacity: 1;
+}
+
+#just-the-tip .arrow {
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  margin-top: -5px;
+	width: 0;
+	height: 0;
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-left: 5px solid rgba(0,0,0,.5);
 }
 
 /* Rails Adjustments */

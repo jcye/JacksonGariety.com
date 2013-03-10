@@ -1,6 +1,6 @@
 <% def laybricks(c,stream) %>
   <% if c.is_a?(Post) %>
-    <article class="tile post <%= "featured hidden" if c == @featured && stream == true %>" style="background-image: url('<%= c.thumb.url(:large) %>');">
+    <article data-timestamp="<%= time_ago_in_words(c.created_at) %>" class="tile post <%= "featured hidden" if c == @featured && stream == true %>" style="background-image: url('<%= c.thumb.url(:large) %>');">
       <%= link_to c do %>
         <div class="spacer"></div>
         <h1 class="post-title">
@@ -12,7 +12,7 @@
       <div class="shade"></div>
     </article>
   <% elsif c.is_a?(Photograph) %>
-    <article class="tile photograph <%= c.image_width >= c.image_height ? "wide" : "tall" %>" style="background-image: url('<%= c.image_file.url(:small) %>');">
+    <article data-timestamp="<%= time_ago_in_words(c.created_at) %>" class="tile photograph <%= c.image_width >= c.image_height ? "wide" : "tall" %>" style="background-image: url('<%= c.image_file.url(:small) %>');">
       <%= link_to c do %>
         <div class="spacer"></div>
         <h1 class="post-title"></h1>
@@ -20,7 +20,7 @@
       <div class="shade"></div>
     </article>
   <% elsif c.is_a?(Quote) %>
-    <article class="tile quote">
+    <article data-timestamp="<%= time_ago_in_words(c.created_at) %>" class="tile thought">
       <%= link_to c do %>
         <div class="spacer"></div>
         <h1 class="post-title">
@@ -30,7 +30,7 @@
       <div class="shade"></div>
     </article>
   <% elsif c.is_a?(Project) %>
-    <article class="tile project <%= "featured hidden" if c == @featured && stream == true %> <%= c.side_project == true ? "client" : "main" %>" style="background-image: url('<%= c.thumb %>');">
+    <article data-timestamp="<%= time_ago_in_words(c.created_at) %>" class="tile project <%= "featured hidden" if c == @featured && stream == true %> <%= c.side_project == true ? "client" : "main" %>" style="background-image: url('<%= c.thumb %>');">
       <%= link_to c.link, :target => "_blank" do %>
         <div class="spacer"></div>
         <h1 class="post-title">
@@ -42,7 +42,7 @@
       <div class="shade"></div>
     </article>
   <% elsif c.is_a?(Event) %>
-    <article class="tile event <%= "type-" + c.event_type.to_s %> <%= "featured hidden" if c == @featured && stream == true %>">
+    <article data-timestamp="<%= time_ago_in_words(c.created_at) %>" class="tile event <%= "type-" + c.event_type.to_s %> <%= "featured hidden" if c == @featured && stream == true %>">
       <div class="spacer"></div>
       <h1 class="post-title">
         <%= c.title %>
@@ -51,7 +51,7 @@
       <div class="shade"></div>
     </article>
   <% elsif c.is_a?(Video) %>
-    <article class="tile video <%= "featured hidden" if c == @featured && stream == true %>">
+    <article data-timestamp="<%= time_ago_in_words(c.created_at) %>" class="tile video <%= "featured hidden" if c == @featured && stream == true %>">
       <%= link_to "https://vimeo.com/" + c.vimeo, :target => "_blank", :class => "vimeo-link" do %>
         <div class="spacer"></div>
         <div class="shade"></div>
@@ -62,9 +62,9 @@
 <% end %>
 
 <section id="featured">
-  <p class="label">Latest work&hellip;</p>
+  <p class="label"><span class="dots"><% 200.times do %>&middot;<% end %></span><span>Latest work</span></p>
   <% laybricks(@featured,false) %>
-  <p class="label">More&hellip;</p>
+  <p class="label"><span class="dots"><% 200.times do %>&middot;<% end %></span><span>More</span></p>
 </section>
 
 <section id="stream">
@@ -72,3 +72,8 @@
     <% laybricks(c,true) %>
   <% end %>
 </section>
+
+<div id="just-the-tip">
+  <span>Today</span>
+  <div class="arrow"></div>
+</div>

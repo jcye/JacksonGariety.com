@@ -3,11 +3,12 @@ class Post < ActiveRecord::Base
 
   attr_accessible :content, :date, :slug, :thumb, :title
 
-  has_attached_file :thumb, :styles => {
-    :large => "650x650>",
-    :medium => "325x325>",
-    :small => "150x150>"
-  }
+  has_attached_file :thumb,
+                    :styles => {
+                      :large => "660x660>",
+                      :medium => "330x330>",
+                      :small => "150x150>"
+                    }
 
   def to_param
     "#{slug}"

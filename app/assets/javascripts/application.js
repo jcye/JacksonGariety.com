@@ -2,15 +2,23 @@
 //= require jquery_ujs
 //= require masonry
 
+var timer,
+  tip = $("#just-the-tip")
+
 function doMasonry() {
-  $.when($('#stream').masonry({
-    itemSelector: '.tile',
-    columnWidth: 165,
-    isResizable: true,
-    isFitWidth: false
-  })).then(function(){
+  if ($(window).width() > 950) {
+    $.when($('#stream').masonry({
+      itemSelector: '.tile',
+      columnWidth: 165,
+      isResizable: true,
+      isFitWidth: false
+    })).then(function(){
+      $("section").addClass("done")
+    });
+  } else {
     $("section").addClass("done")
-  });
+    $(".tile").addClass("masonry-brick").removeAtt("style")
+  }
 }
 
 function navigate(section) {
@@ -32,6 +40,25 @@ function navigate(section) {
   }
 
   doMasonry()
+}
+
+function setTooltip() {
+  clearTimeout(timer)
+
+	var viewportHeight = $(window).height(),
+		documentHeight = $(document).height(),
+    progress = $(document).scrollTop() / (documentHeight - viewportHeight),
+		scrollbarHeight = viewportHeight / documentHeight * viewportHeight,
+		tooltip = tip,
+		distance = progress * (viewportHeight - scrollbarHeight) + (scrollbarHeight / 2) - (tooltip.height() / 2),
+		timestamp = $(document.elementFromPoint($(document).width() / 2, distance)).parents(".tile").attr("data-timestamp")
+
+	tip.css("top", distance + "px").addClass("active")
+	if (timestamp != "" && timestamp != undefined) { tip.find("span:last-of-type").html(timestamp + " ago") }
+
+	timer = setTimeout(function(){
+  	tip.removeClass("active")
+	}, 550)
 }
 
 $(function(){
@@ -81,4 +108,14 @@ $(function(){
       }
     }, 100);
   }
+
+  // Responsiveness
+  $(window).resize(function(){
+    doMasonry()
+  });
+
+  // Tooltip
+  $(window).scroll(function(){
+    tip.css("-webkit-transform","translateY(" + setTooltip() + "px)")
+  });
 });
