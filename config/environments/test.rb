@@ -34,4 +34,7 @@ JacksongarietyDev::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  # Timezone
+  config.time_zone = "Pacific Time (US & Canada)"
 end
