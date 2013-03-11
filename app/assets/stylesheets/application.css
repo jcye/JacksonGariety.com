@@ -96,14 +96,21 @@ aside li {
   list-style: none;
   border: 1px solid transparent;
   clear: both;
-  display: inline;
+  display: inline-block;
   padding-left: 6px;
   padding-right: 6px;
   padding-bottom: 2px;
+  margin-left: 20px;
+  margin-right: 20px;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+
+li.life {
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
 aside li:after {
@@ -232,6 +239,7 @@ aside .tilde {
   overflow: hidden;
   float: left;
   text-align: left;
+  height: 27px;
 }
 
 p.label span:last-child {
@@ -320,6 +328,31 @@ p.label span:last-child {
   height: 300px;
   background-size: cover;
   background-origin: border-box;
+}
+
+.tile a {
+  display: block;
+  position: absolute;
+}
+
+.tile.post a, .tile.project a, .tile.video a {
+  width: 660px;
+  height: 300px;
+}
+
+.tile.project.client a {
+  width: 330px;
+  height: 300px;
+}
+
+.tile.photograph.wide a, .tile.thought a {
+  width: 330px;
+  height: 150px;
+}
+
+.tile.photograph.tall a {
+  width: 165px;
+  height: 300px;
 }
 
 .tile.video iframe {

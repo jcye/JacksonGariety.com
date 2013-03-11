@@ -17,6 +17,11 @@
     margin-right: auto;
   }
 
+  aside p {
+    font-size: 1em;
+    margin-bottom: 20px;
+  }
+
   .dots, .tilde {
     display: none !important;
   }
@@ -31,5 +36,13 @@
 
   #just-the-tip .arrow {
     border-left-color: rgba(0,0,0,.75);
+  }
+}
+
+/* Hide bubble on mobile */
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (min-device-width : 320px) and (max-device-width : 480px) {
+  #just-the-tip {
+    display: none !important;
   }
 }
