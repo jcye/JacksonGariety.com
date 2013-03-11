@@ -90,7 +90,14 @@ $(function(){
         'width': $(this).get(0).naturalWidth / 2,
         'margin-left': (-(($(this).get(0).naturalWidth / 2) - 610) / 2)
       }).addClass("zoomed");
-      $("aside").css("margin-left",-(($(this).width() / 2) + 250))
+
+      sidebarMargin = -(($(this).width() / 2) + 250)
+
+      if (sidebarMargin < -555) {
+        $("aside").css("margin-left", sidebarMargin + "px")
+      } else {
+        $("aside").css("margin-left", -555 + "px")
+      }
     }
   });
 
