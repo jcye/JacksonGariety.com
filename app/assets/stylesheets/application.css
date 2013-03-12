@@ -240,6 +240,8 @@ aside .tilde {
   float: left;
   text-align: left;
   height: 27px;
+  left: 50%;
+  margin-left: -323px;
 }
 
 p.label span:last-child {
