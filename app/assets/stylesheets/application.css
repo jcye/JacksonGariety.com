@@ -174,12 +174,8 @@ aside .tilde {
   z-index: 0;
 }
 
-#me:hover {
-  opacity: .75;
-}
-
-#me:active {
-  opacity: .95;
+#me:hover, #me:active {
+  opacity: .9;
 }
 
 #me:active + #my-shadow {
@@ -461,7 +457,7 @@ p.label span:last-child {
   height: 150px;
   background: transparent;
   opacity: .85;
-  border-color: rgba(0,0,0,.116);
+  border-color: rgba(0,0,0,.058);
 }
 
 .tile.project:hover .shade, .tile.video:hover .shade {
@@ -833,7 +829,7 @@ table#feeds li {
   aside {
     font-size: .8em;
   }
-  
+
   aside h2 {
     margin-top: 5px;
   }
