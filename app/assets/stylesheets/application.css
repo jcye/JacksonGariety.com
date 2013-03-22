@@ -76,9 +76,10 @@ aside {
   text-align: center;
 }
 
-aside h1 {
+body h1:first-child {
   visibility: hidden;
   height: 0;
+  padding: 0;
 }
 
 aside h2 {
