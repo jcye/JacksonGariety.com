@@ -1,3 +1,5 @@
+<%=h content_for(:title, "Jackson Gariety — Designer, Developer, Philosopher") %>
+
 <% def laybricks(c,stream) %>
   <% if c.is_a?(Post) %>
     <article data-timestamp="<%= time_ago_in_words(c.created_at) %>" class="tile post <%= "featured hidden" if c == @featured && stream == true %>" style="background-image: url('<%= c.thumb.url(:large) %>');">

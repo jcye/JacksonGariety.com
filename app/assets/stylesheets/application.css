@@ -76,6 +76,11 @@ aside {
   text-align: center;
 }
 
+aside h1 {
+  visibility: hidden;
+  height: 0;
+}
+
 aside h2 {
   color: #444;
   margin: 0;

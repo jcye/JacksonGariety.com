@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Jackson Gariety — Designer, Developer, Philosopher</title>
+  <title><%=h yield(:title) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= stylesheet_link_tag params[:controller] %>
   <%= csrf_meta_tags %>
@@ -13,7 +13,7 @@
 <body>
 
 <aside>
-  <a href="/"><div id="me"></div><div id="my-shadow"></div></a>
+  <a href="/"><h1>Jackson Gariety — Designer, Developer, Philosopher</h1><div id="me"></div><div id="my-shadow"></div></a>
   <h2>Hi, I'm Jackson</h2>
   <p>I like text editors and pixels and patterns and humans.</p>
   <ul>
