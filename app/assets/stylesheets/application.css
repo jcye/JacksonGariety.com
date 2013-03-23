@@ -66,10 +66,11 @@ aside {
   position: absolute;
   width: 150px;
   left: 50%;
-  margin-left: -555px;
+  margin-left: -548px;
   padding: 50px;
-  padding-top: 25px;
+  padding-top: 21px;
   text-align: center;
+  padding-right: 21px;
 }
 
 body h1:first-child {
@@ -156,10 +157,10 @@ aside .tilde {
   z-index: 1;
   position: relative;
   cursor: pointer;
-  background: url("/assets/me_bw.jpg") no-repeat center -4px;
-  -moz-background-size: 150px;
-    -o-background-size: 150px;
-       background-size: 150px;
+  background: url("/assets/me.jpg") no-repeat -154px center;
+  -moz-background-size: 300px;
+    -o-background-size: 300px;
+       background-size: 300px;
   behavior: url("/assets/PIE.htc");
 }
 
@@ -178,6 +179,7 @@ aside .tilde {
 
 #me:hover, #me:active {
   background-image: url('/assets/me.jpg');
+  background-position: -4px center;
 }
 
 #me:active {
@@ -267,6 +269,23 @@ p.label span:last-child {
   height: 300px;
 }
 
+#featured .tile.post {
+  height: 300px;
+}
+
+#featured .tile.post .post-title {
+  font-size: 3em;
+  height: 300px;
+}
+
+#featured .tile.post a {
+  height: 300px;
+}
+
+#featured .tile.post .crafted-on {
+  font-size: .3em !important;
+}
+
 #featured .tile.project, .tile.project.main {
   font-size: 1.74em;
   background-position: 365px 123px;
@@ -280,6 +299,7 @@ p.label span:last-child {
 }
 
 .tile.project.main p.crafted-on {
+  margin-top: 10px;
   font-size: .35em !important;
 }
 
@@ -329,7 +349,7 @@ p.label span:last-child {
 
 .tile.post, .tile.event {
   width: 660px;
-  height: 300px;
+  height: 150px;
   background-size: cover;
   background-origin: border-box;
 }
@@ -339,7 +359,7 @@ p.label span:last-child {
   position: absolute;
 }
 
-.tile.post a, .tile.project a, .tile.video a {
+.tile.project a, .tile.video a {
   width: 660px;
   height: 300px;
 }
@@ -347,6 +367,11 @@ p.label span:last-child {
 .tile.project.client a {
   width: 330px;
   height: 300px;
+}
+
+.tile.post a {
+  width: 660px;
+  height: 150px;
 }
 
 .tile.photograph.wide a, .tile.thought a {
@@ -365,8 +390,7 @@ p.label span:last-child {
 
 .tile.event {
   cursor: auto;
-  background: #F1F1F1;
-  height: 150px;
+  background: #F2F2F2;
   text-align: center;
   background-size: 200px 100px !important;
   background-position: 25px;
@@ -400,7 +424,7 @@ p.label span:last-child {
 }
 
 .tile.event:hover .shade {
-  border-color: rgba(0,0,0,.15);
+  border-color: rgba(0,0,0,.075);
 }
 
 .tile.event h1 {
@@ -414,11 +438,6 @@ p.label span:last-child {
   font-size: .45em !important;
 }
 
-.tile.post .spacer {
-  width: 652px;
-  height: 292px;
-}
-
 .tile.event .spacer {
   width: 652px;
   height: 142px;
@@ -428,12 +447,16 @@ p.label span:last-child {
   width: 644px;
   height: 284px;
   background: #FFF;
-  opacity: .75;
-  border-color: rgba(0,0,0,.058);
+  opacity: .85;
+  border-color: rgba(0,0,0,.029);
+}
+
+.tile.post .shade {
+  height: 134px;
 }
 
 .tile.video .shade {
-  border-color: rgba(0,0,0,.15);
+  border-color: rgba(0,0,0,.075);
   z-index: 1;
   opacity: .5;
   background: transparent;
@@ -463,7 +486,7 @@ p.label span:last-child {
   height: 150px;
   background: transparent;
   opacity: .85;
-  border-color: rgba(0,0,0,.058);
+  border-color: rgba(0,0,0,.0253);
 }
 
 .tile.project:hover .shade, .tile.video:hover .shade {
@@ -485,12 +508,13 @@ p.label span:last-child {
   text-decoration: none;
   z-index: 1;
   width: 600px;
-  height: 276px;
+  height: 107px;
   margin-bottom: 0;
+  font-size: 2em;
+  line-height: 1.25;
 }
 
 .tile.event .post-title {
-  height: 107px;
   width: 610px;
   padding-top: 0;
   padding-bottom: 0;
@@ -529,7 +553,7 @@ p.label span:last-child {
 }
 
 .tile.thought {
-  background: #F1F1F1;
+  background: #F2F2F2;
 }
 
 p.author {
@@ -537,6 +561,11 @@ p.author {
   font-size: .6em;
   margin-top: 25px;
   font-weight: 100;
+}
+
+.tile.post .spacer {
+  width: 652px;
+  height: 142px;
 }
 
 .post-title p.author {
@@ -556,7 +585,7 @@ p.author {
 }
 
 .tile.project {
-  background-color: #F1F1F1;
+  background-color: #F2F2F2;
   background-position: 58px 173px;
   background-repeat: no-repeat;
   background-size: 300px;
@@ -579,7 +608,7 @@ p.author {
   height: 134px;
   background: #FFF;
   opacity: .1;
-  border-color: rgba(0,0,0,.5);
+  border-color: rgba(0,0,0,.25);
 }
 
 .tile.photograph.wide .shade {
@@ -592,7 +621,7 @@ p.author {
 }
 
 .tile.photograph.tall .shade {
-  width: 157px;
+  width: 149px;
 }
 
 .tile.photograph .post-title, .tile.thought .post-title, .tile.project .post-title {
@@ -606,6 +635,7 @@ p.author {
   padding: 12px;
   padding-top: 6px;
   font-size: 1.75em;
+  line-height: 1.25;
 }
 
 .tile.photograph.tall .post-title {
@@ -614,7 +644,7 @@ p.author {
 
 .tile.project .post-title {
   padding: 22px;
-  padding-top: 18px;
+  padding-top: 10px;
   font-size: 2em;
 }
 
@@ -644,7 +674,7 @@ p.author {
 }
 
 .tile.post:hover .shade {
-  border-color: rgba(0,0,0,.6);
+  border-color: rgba(0,0,0,.3);
 }
 
 .tile:active .shade {
@@ -676,17 +706,16 @@ p.author {
 }
 
 .post-title .crafted-on {
-  font-size: .3em !important;
+  font-size: .4em !important;
   font-weight: 400;
   line-height: 1.5;
-  margin-top: 10px;
   padding: 0 !important;
   font-style: italic;
   font-family: "FF Tisa Web Pro", Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 .tile.project:active .shade {
-  border-color: rgba(0,0,0,.1);
+  border-color: rgba(0,0,0,.05);
 }
 
 /* Posts */
@@ -698,7 +727,8 @@ article, section h1 {
 }
 
 section h1 {
-  padding-top: 33px;
+  padding-top: 21px;
+  line-height: 73px;
 }
 
 article img {
@@ -718,7 +748,7 @@ article p img {
 h1, h2, h3, h4, h5, h6 {
   color: #333;
   font-family: "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  line-height: 1.1;
+  line-height: 1.25;
 }
 
 h1 {
@@ -856,7 +886,7 @@ table#feeds li {
 /* Retina Images */
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  #me { background-image: url("/assets/me@2x_bw.jpg"); }
+  #me { background-image: url("/assets/me@2x.jpg"); }
   #me:hover, #me:active { background-image: url("/assets/me@2x.jpg"); }
   .tile .frame { background-image: url("/assets/frame_web@2x.png"); }
   .tile.event.type-1 { background-image: url("/assets/event_1@2x.png"); }

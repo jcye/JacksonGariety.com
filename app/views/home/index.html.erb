@@ -2,7 +2,7 @@
 
 <% def laybricks(c,stream) %>
   <% if c.is_a?(Post) %>
-    <article data-timestamp="<%= time_ago_in_words(c.created_at) %>" class="tile post <%= "featured hidden" if c == @featured && stream == true %>" style="background-image: url('<%= c.thumb.url(:large) %>');">
+    <article data-timestamp="<%= time_ago_in_words(c.created_at) %>" class="tile post <%= "featured hidden" if c == @featured && stream == true %>" style="background-image: url('<%= c.thumb.url(:original) %>');">
       <%= link_to c do %>
         <div class="spacer"></div>
         <h1 class="post-title">
