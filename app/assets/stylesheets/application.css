@@ -63,7 +63,7 @@ a:active {
 /* Sidebar */
 
 aside {
-  position: fixed;
+  position: absolute;
   width: 150px;
   left: 50%;
   margin-left: -555px;
@@ -156,7 +156,7 @@ aside .tilde {
   z-index: 1;
   position: relative;
   cursor: pointer;
-  background: url("/assets/me.jpg") no-repeat center -4px;
+  background: url("/assets/me_bw.jpg") no-repeat center -4px;
   -moz-background-size: 150px;
     -o-background-size: 150px;
        background-size: 150px;
@@ -177,6 +177,10 @@ aside .tilde {
 }
 
 #me:hover, #me:active {
+  background-image: url('/assets/me.jpg');
+}
+
+#me:active {
   opacity: .9;
 }
 
@@ -231,7 +235,7 @@ aside .tilde {
   margin-top: 2px;
   font-size: 8px;
   letter-spacing: 3px;
-  color: #BBB;
+  color: #888;
   z-index: -1;
   width: 653px;
   overflow: hidden;
@@ -827,7 +831,7 @@ table#feeds li {
 
 /* Responsiveness */
 
-@media only screen and (max-height: 660px) {
+@media only screen and (max-height: 660px) and (min-width: 1001px) {
   aside {
     font-size: .8em;
   }
@@ -852,7 +856,8 @@ table#feeds li {
 /* Retina Images */
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  #me { background-image: url("/assets/me@2x.jpg"); }
+  #me { background-image: url("/assets/me@2x_bw.jpg"); }
+  #me:hover, #me:active { background-image: url("/assets/me@2x.jpg"); }
   .tile .frame { background-image: url("/assets/frame_web@2x.png"); }
   .tile.event.type-1 { background-image: url("/assets/event_1@2x.png"); }
   .tile.event.type-1:hover { background-image: url("/assets/event_1_inv@2x.png"); }

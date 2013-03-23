@@ -1,11 +1,4 @@
 /* Responsive Schtuff */
-
-@media only screen and (max-width: 1111px) {
-  aside {
-
-  }
-}
-
 @media only screen and (max-width: 1150px) {
   aside {
     position: relative;
@@ -21,5 +14,9 @@
   #me, #my-shadow {
     margin-left: auto;
     margin-right: auto;
+  }
+  
+  aside .tilde:first-child {
+    display: none;
   }
 }

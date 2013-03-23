@@ -11,6 +11,11 @@
     left: 0;
     border-bottom: 1px dashed #bbb;
   }
+  
+  aside li {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+  }
 
   #me, #my-shadow {
     margin-left: auto;
@@ -22,7 +27,7 @@
     margin-bottom: 20px;
   }
 
-  .dots, .tilde {
+  .dots {
     display: none !important;
   }
 
@@ -36,6 +41,10 @@
 
   #just-the-tip .arrow {
     border-left-color: rgba(0,0,0,.75);
+  }
+
+  aside .tilde:first-child {
+    display: none;
   }
 }
 
