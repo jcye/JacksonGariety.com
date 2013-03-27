@@ -7,7 +7,7 @@ var timer,
   doTooltip = true
 
 function doMasonry() {
-  if ($(window).width() > 950) {
+  if ($(window).width() >= 668) {
     $.when($('#stream').masonry({
       itemSelector: '.tile',
       columnWidth: 165,
@@ -87,8 +87,8 @@ function getTweetCount() {
     url: "http://cdn.api.twitter.com/1/urls/count.json?url=" + encodeURIComponent(document.location.href),
     dataType: "JSONP",
     success: function(data) {
-      console.log(data)
-      $(".tweet-count").html(data.count)
+      console.log(data.count)
+      $(".twitter.count").html(data.count)
     }
   })
 }
@@ -151,10 +151,6 @@ $(function(){
   $(".heart:not(.clicked)").click(function(){
     $(".love.count").html(parseInt($(".love.count").html()) + 1)
     $(".heart").addClass("clicked").off("click")
-    $("body").addClass("the-lover")
-    setTimeout(function(){
-      $("body").removeClass("the-lover")
-    },2000)
   })
 
   $(".tweet:not(.clicked)").click(function(){

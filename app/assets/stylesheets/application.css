@@ -33,16 +33,9 @@ html, html a {
 body {
   font-family: "FF Tisa Web Pro", Georgia, Cambria, "Times New Roman", Times, serif;
   color: #444;
-  background: #F9F9F9;
+  background-color: #F9F9F9;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  -webkit-transition: background-color 2s;
-  -moz-transition: background-color 2s;
-  transition: background-color 2s;
-}
-
-body.the-lover {
-  background-color: #ffebeb;
 }
 
 section {
