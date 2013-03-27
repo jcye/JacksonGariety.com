@@ -50,4 +50,8 @@ JacksongarietyDev::Application.routes.draw do
   resources :videos
 
   resources :posts, :path => "journals"
+
+  # Methods
+
+  match "like", :to => "posts#like"
 end

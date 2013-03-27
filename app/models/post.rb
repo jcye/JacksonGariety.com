@@ -15,12 +15,8 @@ class Post < ActiveRecord::Base
   end
 
   validates :title, :content, :thumb, :slug, :presence => true
-
-#   def prev_path
-#     self.class.first(:conditions => ["created_at < ?", created_at], :order => "created_at DESC") || self.class.order('created_at DESC').first
-#   end
-
+  
   def next_path
-    self.class.first(:conditions => ["created_at > ?", created_at], :order => "created_at ASC") || self.class.order('created_at ASC').first
+    self.class.where(["created_at < ?", created_at]).last || self.class.last
   end
 end

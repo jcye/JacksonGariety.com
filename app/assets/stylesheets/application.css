@@ -27,12 +27,22 @@ html {
   overflow-y: scroll;
 }
 
+html, html a {
+}
+
 body {
   font-family: "FF Tisa Web Pro", Georgia, Cambria, "Times New Roman", Times, serif;
   color: #444;
   background: #F9F9F9;
-  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  -webkit-transition: background-color 2s;
+  -moz-transition: background-color 2s;
+  transition: background-color 2s;
+}
+
+body.the-lover {
+  background-color: #ffebeb;
 }
 
 section {
@@ -44,6 +54,14 @@ section {
 
 #stream {
   padding-bottom: 21px;
+}
+
+::selection {
+	background: #DDD;
+}
+
+::-moz-selection {
+	background: #DDD;
 }
 
 /* Links */
@@ -63,20 +81,27 @@ a:active {
 /* Sidebar */
 
 aside {
-  position: absolute;
+  position: fixed;
   width: 150px;
   left: 50%;
+  top: 0;
   margin-left: -548px;
   padding: 50px;
   padding-top: 21px;
   text-align: center;
   padding-right: 21px;
+  -webkit-transform: translateZ(0);
 }
 
-body h1:first-child {
+h1#title {
   visibility: hidden;
   height: 0;
   padding: 0;
+  margin: 0;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 aside h2 {
@@ -147,7 +172,7 @@ aside .tilde {
 }
 
 #me, #my-shadow {
-  border: 4px solid rgba(0,0,0,.1);
+  border: 4px solid rgba(0,0,0,.05);
   -webkit-border-radius: 150px;
      -moz-border-radius: 150px;
           border-radius: 150px;
@@ -166,14 +191,10 @@ aside .tilde {
 
 #my-shadow {
   background-image: none;
-}
-
-#my-shadow {
-  width: 140px;
-  height: 140px;
+  width: 142px;
+  height: 142px;
   background: #FFF;
-  margin-top: -149px;
-  margin-left: 1px;
+  margin-top: -150px;
   z-index: 0;
 }
 
@@ -246,6 +267,15 @@ aside .tilde {
   height: 27px;
   left: 50%;
   margin-left: -323px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+p .dots {
+  width: 610px;
+  margin-left: -305px;
 }
 
 p.label span:last-child {
@@ -351,7 +381,9 @@ p.label span:last-child {
   width: 660px;
   height: 150px;
   background-size: cover;
+  -moz-background-size: cover;
   background-origin: border-box;
+  -moz-background-origin: border-box;
 }
 
 .tile a {
@@ -669,7 +701,7 @@ p.author {
   opacity: .66;
 }
 
-.tile.post:hover h1, .tile.photograph:hover h1, .tile.thought:hover h1, .tile.post:hover span, .tile.post:hover p, .tile.project:hover p, .tile.project:hover h1, .tile.event:hover h1   {
+.tile.post:hover h1, .tile.post:active h1, .tile.photograph:hover h1, .tile.thought:hover h1, .tile.post:hover span, .tile.post:active span, .tile.post:hover p, .tile.project:hover p, .tile.project:hover h1, .tile.event:hover h1   {
   color: #F9F9F9;
 }
 
@@ -726,6 +758,10 @@ article, section h1 {
   padding-bottom: 13px;
 }
 
+article footer {
+  text-align: center;
+}
+
 section h1 {
   padding-top: 21px;
   line-height: 73px;
@@ -734,6 +770,7 @@ section h1 {
 article img {
   width: 100%;
   max-width: 660px;
+  min-width: 610px;
   height: auto;
   vertical-align: top !important;
   cursor: pointer;
@@ -741,6 +778,89 @@ article img {
 
 article p img {
   margin: 0;
+}
+
+.share {
+  height: 80px;
+  position: relative;
+  color: #888;
+}
+
+.share, .share * {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.share span {
+  position: relative;
+  margin: 10px;
+  font-style: italic;
+  top: -5px;
+}
+
+.heart, .tweet {
+  width: 50px;
+  height: 50px;
+  background: #EEE;
+  display: inline-block;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: 25px;
+  -moz-background-size: 25px;
+  background-size: 25px;
+  -webkit-border-radius: 100px;
+     -moz-border-radius: 100px;
+          border-radius: 100px;
+}
+
+.heart:hover, .tweet:hover {
+  opacity: .75;
+}
+
+.heart.clicked:hover, .heart.clicked:active, .tweet.clicked:hover, .tweet.clicked:active {
+  opacity: 1;
+}
+
+.heart {
+  background-image: url("/assets/heart.png");
+}
+
+.tweet {
+  background-image: url("/assets/twitter.png");
+}
+
+.tweet.clicked, .tweet:active {
+  background-color: #55b8ff;
+  cursor: default;
+}
+
+.heart.clicked, .heart:active {
+  background-color: #ff6161;
+  cursor: default;
+}
+
+footer p {
+  border: 2px solid #F2F2F2;
+  display: inline-block;
+  padding: 10px;
+  background: #F8F8F8;
+}
+
+.count {
+  width: 100px;
+  text-align: center;
+  display: inline-block;
+  position: absolute !important;
+  margin-left: -75px !important;
+  margin-top: 50px !important;
+  font-style: normal !important;
+}
+
+.love.count {
+  margin-left: -78px !important;
 }
 
 /* Typography */
@@ -841,6 +961,10 @@ table#feeds li {
        -o-transition: opacity 350ms;
           transition: opacity 350ms;
   opacity: 0;
+}
+
+#just-the-tip.hidden {
+  display: none;
 }
 
 #just-the-tip.active {

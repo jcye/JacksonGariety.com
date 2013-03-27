@@ -15,8 +15,13 @@
     margin-left: auto;
     margin-right: auto;
   }
-  
+
   aside .tilde:first-child {
     display: none;
   }
+}
+
+article, section h1 {
+  float: left;
+  max-width: 610px;
 }

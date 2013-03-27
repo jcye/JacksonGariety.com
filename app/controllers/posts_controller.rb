@@ -86,4 +86,20 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def like
+    render :nothing => true
+
+    id = params[:post_id]
+    cookies.permanent[:like_history] = "" unless cookies[:like_history]
+
+    unless cookies[:like_history].split(",").include? id.to_s
+
+      cookies.permanent[:like_history] = cookies[:like_history] + ",#{id}"
+
+      @post = Post.find(id)
+
+      @post.update_column(:likes, @post.likes + 1)
+    end
+  end
 end

@@ -1,4 +1,11 @@
-<%=h content_for(:title, @post.title + " — Jackson Gariety") %>
+<% content_for :title, @post.title + " by Jackson Gariety" %>
+<% content_for :description, @post.content.split("\n\n", 2)[0] %>
+<% content_for :hashtraffic, "<script src=\"http://hashtraffic.com/js/hashtraffic-desktop.js\" type=\"text/javascript\"></script>".html_safe %>
+
+<%
+  url = request.protocol + request.host_with_port + request.fullpath
+  (clicked = (cookies[:like_history].include? @post.id.to_s) ? " clicked" : "") if cookies[:like_history]
+%>
 
 <section>
   <p id="notice"><%= notice %></p>
@@ -8,6 +15,16 @@
   <article class="post-content">
     <p class="crafted-on"><i>Crafted on <%= @post.created_at.strftime("%A, %B #{@post.created_at.day.ordinalize}, %Y") %></i></p>
     <%= @post.content.html_safe %>
-    <p>Now read: <%= link_to(@post.next_path.title, @post.next_path) %></p>
+    <p><span class="dots"><% 200.times do %>&middot;<% end %></span><br></p>
+    <footer>
+      <div class="share">
+        <%= link_to "<div class=\"heart#{clicked}\"></div>".html_safe, like_path(:post_id => @post.id), :remote => true %>
+        <span class="love count"><%= @post.likes %></span>
+        <span>then</span>
+        <%= link_to "<div class=\"tweet\"></div>".html_safe, "https://twitter.com/intent/tweet?original_referer=#{CGI::escape(url)}&text=#{CGI::escape(@post.title)}&url=#{CGI::escape(url)}&via=JacksonGariety", :target => "_blank" %>
+        <span class="twitter count">0</span>
+      </div><br>
+      <p>Now read: <%= link_to @post.next_path.title, @post.next_path %></p>
+    </footer>
   </article>
 </section>

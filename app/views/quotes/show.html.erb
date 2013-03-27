@@ -1,4 +1,4 @@
-<%=h content_for(:title, truncate(@quote.content, :length => 35) + " — Jackson Gariety") %>
+<% content_for :title, truncate(@quote.content, :length => 50) + " — " + @quote.author %>
 
 <section>
   <p id="notice"><%= notice %></p>

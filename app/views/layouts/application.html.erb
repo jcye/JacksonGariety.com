@@ -6,13 +6,17 @@
   <%= stylesheet_link_tag params[:controller] %>
   <%= csrf_meta_tags %>
   <meta name="description" content="Hi, I'm Jackson. I like text editors and pixels and patterns and humans.">
+  <meta name="keywords" content="jackson,gariety,design,development,philosophy,art,web,programming">
+  <meta name="author" content="Jackson Gariety">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=668px">
   <%= auto_discovery_link_tag :atom, "/feeds/literary" %>
   <%= auto_discovery_link_tag :atom, "/feeds/architect" %>
   <%= auto_discovery_link_tag :atom, "/posts/stalker" %>
   <%= javascript_include_tag "modernizr" %>
 </head>
 <body>
-<h1>Jackson Gariety — Designer, Developer, Philosopher</h1>
+<h1 id="title">Jackson Gariety — Designer, Developer, Philosopher</h1>
 <aside>
   <a href="/"><div id="me"></div><div id="my-shadow"></div></a>
   <h2>Hi, I'm Jackson</h2>
@@ -35,7 +39,7 @@
 <%= yield %>
 
   <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "http://hashtraffic.com/js/hashtraffic-desktop.js" %>
+  <%= yield :hashtraffic %>
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-29461279-1']);
