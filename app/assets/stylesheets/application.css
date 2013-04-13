@@ -813,7 +813,7 @@ article p img {
   opacity: .75;
 }
 
-.heart.clicked:hover, .heart.clicked:active, .tweet.clicked:hover, .tweet.clicked:active {
+.heart.clicked, .heart:active, .tweet.clicked, .tweet:active {
   opacity: 1;
 }
 
