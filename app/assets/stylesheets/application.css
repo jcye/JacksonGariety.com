@@ -83,7 +83,7 @@ aside {
   padding-top: 21px;
   text-align: center;
   padding-right: 21px;
-  -webkit-transform: translateZ(0);
+  -webkit-transform-style: preserve-3d;
 }
 
 h1#title {
@@ -212,7 +212,6 @@ aside .tilde {
   cursor: pointer;
   background-position: center center;
   display: none;
-  -webkit-transform: translateZ(0);
   behavior: url("/assets/PIE.htc");
 }
 
@@ -728,6 +727,10 @@ p.author {
   bottom: 0;
   background-image: url("/assets/frame_web.png");
   background-size: 600px;
+}
+
+.crafted-on {
+  -webkit-transform: translateZ(0);
 }
 
 .post-title .crafted-on {
