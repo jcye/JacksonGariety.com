@@ -102,6 +102,11 @@ $(function(){
     $("aside li." + window.location.pathname.split("/")[1]).addClass("active")
   }
 
+  // Set positioning from scrollers
+  $(".scroller").each(function(){
+    $(this).css("bottom", - ($(this).height() - $(this).parent().height() - 25))
+  })
+
   // Add target="_blank" where I forgot to
   $("article a").each(function(){
     if ($(this).attr("target") !== "_blank" && $(this).attr("href").indexOf("jacksongariety.com") == -1 && $(this).attr("href").indexOf("http://") !== -1) {

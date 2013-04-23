@@ -265,8 +265,8 @@ aside .tilde {
           user-select: none;
 }
 
-p .dots {
-  width: 610px;
+.post-content .dots {
+  width: 615px;
   margin-left: -305px;
 }
 
@@ -513,12 +513,6 @@ p.label span:last-child {
   border-color: rgba(0,0,0,.0253);
 }
 
-.tile.project:hover .shade, .tile.video:hover .shade {
-  background: transparent;
-  opacity: .85;
-  z-index: 10000;
-}
-
 .post-title {
   padding: 25px;
   padding-top: 12px;
@@ -697,6 +691,19 @@ p.author {
   color: #F9F9F9;
 }
 
+.tile.thought .scroller {
+  position: absolute;
+  max-width: 275px;
+}
+
+.tile.thought:hover .scroller {
+  bottom: -15px !important;
+  -webkit-transition: bottom 6s linear;
+     -moz-transition: bottom 6s linear;
+       -o-transition: bottom 6s linear;
+          transition: bottom 6s linear;
+}
+
 .tile.post:hover .shade {
   border-color: rgba(0,0,0,.3);
 }
@@ -744,6 +751,15 @@ p.author {
 
 .tile.project:active .shade {
   border-color: rgba(0,0,0,.05);
+}
+
+.tile.project:hover .shade {
+  background: transparent;
+  border-color: rgba(0,0,0,.085);
+}
+
+.tile.thought:active .shade {
+  border-color: rgba(0,0,0,.2);
 }
 
 /* Posts */
