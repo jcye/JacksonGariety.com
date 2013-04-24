@@ -753,7 +753,7 @@ p.author {
   border-color: rgba(0,0,0,.05);
 }
 
-.tile.project:hover .shade {
+.tile.project:hover .shade, .tile.video:hover .shade, .tile.video:active .shade {
   background: transparent;
   border-color: rgba(0,0,0,.085);
 }
