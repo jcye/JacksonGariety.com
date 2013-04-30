@@ -696,14 +696,6 @@ p.author {
   max-width: 275px;
 }
 
-.tile.thought:hover .scroller {
-  bottom: -15px !important;
-  -webkit-transition: bottom 6s linear;
-     -moz-transition: bottom 6s linear;
-       -o-transition: bottom 6s linear;
-          transition: bottom 6s linear;
-}
-
 .tile.post:hover .shade {
   border-color: rgba(0,0,0,.3);
 }

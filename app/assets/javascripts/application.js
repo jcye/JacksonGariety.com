@@ -4,7 +4,8 @@
 
 var timer,
   tip = $("#just-the-tip"),
-  doTooltip = true
+  doTooltip = true,
+  animation
 
 function doMasonry() {
   if ($(window).width() >= 668) {
@@ -21,6 +22,23 @@ function doMasonry() {
     $(".tile").addClass("masonry-brick").removeAtt("style")
   }
 }
+
+$(".thought").hover(function(){
+  var el = $(this).find(".scroller");
+  var cont = el.parent();
+  var bottom_distance = (cont.get(0).offsetHeight) - (el.get(0).offsetTop + el.get(0).offsetHeight);
+  animation = setInterval(function(){
+    if (bottom_distance != -15) {
+      el.css("bottom", parseInt(el.css("bottom")) + 1)
+
+      bottom_distance = (cont.get(0).offsetHeight) - (el.get(0).offsetTop + el.get(0).offsetHeight);
+    }
+  }, 20)
+}, function(){
+  clearInterval(animation);
+  el = $(this).find(".scroller");
+  el.css("bottom", - (el.height() - el.parent().height() - 25));
+})
 
 function navigate(section) {
   window.scrollTo(0,0)
@@ -87,7 +105,6 @@ function getTweetCount() {
     url: "http://cdn.api.twitter.com/1/urls/count.json?url=" + encodeURIComponent(document.location.href),
     dataType: "JSONP",
     success: function(data) {
-      console.log(data.count)
       $(".twitter.count").html(data.count)
     }
   })
