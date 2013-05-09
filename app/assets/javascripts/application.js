@@ -28,7 +28,7 @@ $(".thought").hover(function(){
   var cont = el.parent();
   var bottom_distance = (cont.get(0).offsetHeight) - (el.get(0).offsetTop + el.get(0).offsetHeight);
   animation = setInterval(function(){
-    if (bottom_distance != -15) {
+    if (bottom_distance != -18) {
       el.css("bottom", parseInt(el.css("bottom")) + 1)
 
       bottom_distance = (cont.get(0).offsetHeight) - (el.get(0).offsetTop + el.get(0).offsetHeight);
@@ -50,9 +50,11 @@ function navigate(section) {
     $('.featured').addClass('hidden')
   } else {
     $("#featured").addClass("hidden")
+    var url = window.location.hash.substr(1,window.location.hash.length);
     var selector = $("li").filter(function(){
-      return $(this).html().toLowerCase() == window.location.hash.substr(1,window.location.hash.length)
-    }).addClass("active")
+      return $(this).html().toLowerCase() == url
+    });
+    selector.addClass("active");
     $('.tile').addClass("hidden")
     $("." + selector.attr("data-selector")).removeClass("hidden")
     selector.parent().siblings().children().removeClass("active")

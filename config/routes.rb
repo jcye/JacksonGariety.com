@@ -17,7 +17,7 @@ JacksongarietyDev::Application.routes.draw do
 
   match "/photography" => redirect("/#photography")
 
-  match "/quotes" => redirect("/#quotes")
+  match "/thoughts" => redirect("/#thoughts")
 
   match "/projects" => redirect("/#projects")
 
@@ -45,7 +45,7 @@ JacksongarietyDev::Application.routes.draw do
 
   resources :photographs, :path => "photography"
 
-  resources :quotes
+  resources :quotes, :path => "thoughts"
 
   resources :videos
 

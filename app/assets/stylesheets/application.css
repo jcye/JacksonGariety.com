@@ -27,9 +27,6 @@ html {
   overflow-y: scroll;
 }
 
-html, html a {
-}
-
 body {
   font-family: "FF Tisa Web Pro", Georgia, Cambria, "Times New Roman", Times, serif;
   color: #444;
