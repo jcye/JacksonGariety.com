@@ -1,6 +1,6 @@
 <% content_for :title, @post.title + " by Jackson Gariety" %>
 <% content_for :description, @post.content.split("\n\n", 2)[0] %>
-<% content_for :hashtraffic, "<script src=\"http://hashtraffic.com/js/hashtraffic-desktop.js\" type=\"text/javascript\"></script>".html_safe %>
+<% content_for :hashtraffic, "<script src=\"http://hashtag.ly/js/hashtraffic-desktop.js\" type=\"text/javascript\"></script>".html_safe %>
 
 <%
   url = request.protocol + request.host_with_port + request.fullpath

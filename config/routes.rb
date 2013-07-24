@@ -22,6 +22,10 @@ JacksongarietyDev::Application.routes.draw do
   match "/projects" => redirect("/#projects")
 
   match '/resume' => "pages#resume"
+  
+  match '/contact' => "pages#resume"
+  
+  match '/about' => "pages#resume"
 
   match '/feeds' => "pages#feeds"
 
