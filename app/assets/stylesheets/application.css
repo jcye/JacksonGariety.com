@@ -899,7 +899,8 @@ blockthought {
 }
 
 .inside {
-  list-style-position: inside;
+  margin-left: 25px;
+  list-style: circle;
 }
 
 /* Feeds Table */
@@ -985,6 +986,71 @@ table#feeds li {
 }
 
 /* Responsiveness */
+
+@media only screen and (max-width: 1000px) {
+  aside {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin: 0;
+    left: 0;
+    border-bottom: 1px dashed #bbb;
+  }
+
+  aside li {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+  }
+
+  #me, #my-shadow {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  aside p {
+    font-size: 1em;
+    margin-bottom: 20px;
+  }
+
+  .dots {
+    display: none !important;
+  }
+
+  #just-the-tip {
+    font-size: .75em;
+    margin-top: -9px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: rgba(0,0,0,.75);
+  }
+
+  #just-the-tip .arrow {
+    border-left-color: rgba(0,0,0,.75);
+  }
+
+  aside .tilde:first-child {
+    display: none;
+  }
+
+  aside ul {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+h2#email {
+  padding-top: 1em;
+}
+
+/* Hide bubble on mobile */
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px), only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  #just-the-tip {
+    display: none !important;
+  }
+}
 
 @media only screen and (max-height: 725px) and (min-width: 1001px) {
   aside {
