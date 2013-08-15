@@ -1,0 +1,15 @@
+<%=h content_for(:title, "Goals of Jackson Gariety") %>
+
+<section>
+  <h1>Goals</h1>
+  <article>
+    <% @goals.each do |goal| %>
+      <div class="outer-goal">
+        <h3><%= goal.title %></h3>
+        <span><%= goal.completion %>% complete</span>
+        <div class="goal"><div class="inner" style="width: <%= goal.completion %>%;"></div></div>
+        <br>
+      </div>
+    <% end %>
+  </article>
+</section>

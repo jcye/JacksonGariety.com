@@ -4,4 +4,8 @@ class PagesController < ApplicationController
 
   def feeds
   end
+  
+  def goals
+    @goals = Goal.all
+  end
 end

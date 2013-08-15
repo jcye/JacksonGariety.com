@@ -28,6 +28,8 @@ JacksongarietyDev::Application.routes.draw do
   match '/about' => "pages#resume"
 
   match '/feeds' => "pages#feeds"
+  
+  match '/goals' => "pages#goals"
 
   # RSS feeds
 
